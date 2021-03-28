@@ -1,0 +1,3 @@
+include ':QuralSDK'
+include ':app'
+rootProject.name = "Qural Android"

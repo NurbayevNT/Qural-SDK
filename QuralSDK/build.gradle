@@ -1,13 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'com.github.dcendents.android-maven'
 }
 
 group = 'com.github.NurbayevNT'
-version = '1.0.5'
+version = '1.0.6'
 
 android {
 
@@ -18,7 +17,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0.5"
+        versionName "1.0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

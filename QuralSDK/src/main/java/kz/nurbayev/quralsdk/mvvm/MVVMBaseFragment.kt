@@ -9,15 +9,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.qural_lottie_dialog.view.*
 import kz.nurbayev.quralsdk.R
+import kz.nurbayev.quralsdk.databinding.QuralLoadingDialogBinding
 import kz.nurbayev.quralsdk.models.NavigationConfigure
 import kz.nurbayev.quralsdk.models.QuralLoadingConfigure
 import kz.nurbayev.quralsdk.services.VibrateService
 import kz.nurbayev.quralsdk.views.QuralProgressDialog
+import kz.nurbayev.quralsdk.views.viewBinding
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class MVVMBaseFragment(
@@ -84,9 +86,13 @@ class MVVMBaseFragment(
             .setCancelable(true)
         val mAlertDialog = mBuilder.show()
         mAlertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        mDialogView.qural_dialog_message.text = message
-        mDialogView.qural_dialog_close_button.text = actionButtonTitle
-        mDialogView.qural_dialog_close_button.onClick {
+
+        val messageTv = requireActivity().findViewById<TextView>(R.id.qural_dialog_message)
+        val closeBtn = requireActivity().findViewById<TextView>(R.id.qural_dialog_close_button)
+
+        messageTv.text = message
+        closeBtn.text = actionButtonTitle
+        closeBtn.onClick {
             mAlertDialog.dismiss()
         }
     }
